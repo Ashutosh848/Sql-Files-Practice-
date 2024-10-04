@@ -1,0 +1,51 @@
+Ans 1.
+Aggregate functions are those functions that performs actions or calculations on multiple tables but shows the result in a single value.
+There are basically 5 aggregate functions in MySQL:-
+.SUM()
+.AVG()
+.MAX()
+.MIN()
+.COUNT()
+
+
+Ans 2.The group by function in MySQL is used to group values by a similiar category, such as aggregating functions like count,sum,avg,max,min. The purpose of group by function is to organise the data into groups(Can have more than 1 column)
+
+The GROUP BY clause is necessary only when you want to apply aggregate functions to subsets of the data (i.e., groups based on a specific column's values).
+
+Ans 3.Aggregate functions like sum,avg always ignore null values present in the dataset.For ex 100,200,null,400,the total sum will be 700(Ignoring null value.)
+
+In summary, while SUM() and AVG() ignore NULL values in their calculations, COUNT(column_name) counts only the non-NULL values in the specified column, and COUNT(*) counts all rows regardless of NULL values.
+
+Ans 4.The Main difference between where and having is:-
+i) Where clause is used before the group by function where as having is used after group by.
+ii) Where clause filter the main table because it is used before group by but having clause filters data according to the group by clause;
+iii)Having clause is mainly used with aggregate functions but where clause can be used with simple queries.
+
+Ans 5.We can sort the data according to our needs(asc,desc) after the group by clause.
+
+Ans 6. Count function is basically used to count the total number of rows in the dataset or we can used columns to group with them and count them accordingly. Group by is mainly used when we need to count our data accoding to the other column of the data. But if we need to count the total no. of rows in the dataset then there is no need to group by in that(count(*)).
+
+Ans 7.Indexing is used to improve performance and the speed of retrieving the data rather than using it regularly.Indexing directly jumps to the column which we have used in it.
+
+Ans 8.There can be many aspects in which aggregating the data can be very helpful:-
+. sum function can be used to retrieve the total sales or sales in particular categories etc
+.avg function is used can be used to find the avg weight or height of players in the Olympics.
+.Max() can be also used to find the maximum sales in a particular region.
+
+Ans 9.   SELECT 
+    CustomerID,
+    SUM(TotalAmount) AS TotalSpending,
+    AVG(TotalAmount) AS AverageSpending,
+    COUNT(OrderID) AS OrderCount
+FROM Orders
+GROUP BY CustomerID;
+
+
+Yes we can combine multiple aggregate functions by grouping the data.
+
+
+Ans 10. Grouping basically provides a short summary that is actually needed by the business men as they do not have the time to read the whole data.
+
+
+
+
