@@ -43,7 +43,44 @@ where rank_salary=5;
 select name,salary,department_id,avg(salary) over(partition by department_id)
 from emp;
 
+#12
 
+select name,salary,avg_salary
+from
+(select name,salary,avg(salary) over(partition by department_id) as avg_salary from emp) as sub
+where salary>avg_salary;
 
+#Q13
+select name,department_id,salary,max(salary) over(partition by department_id) from emp;
+
+#14
+select name,hire_date,rank()
+over(order by hire_date) from emp;
+
+#15
+SELECT name, department_id, salary
+FROM (
+    SELECT name, department_id, salary,
+           ROW_NUMBER() OVER (PARTITION BY department_id ORDER BY salary DESC) AS ranked
+    FROM emp
+) AS ranked_salaries
+WHERE ranked = 1;
+
+#17
+
+select name,lag(salary) over(order by salary) from emp;
+
+#18
+
+select name,first_value(name) over(partition by department_id)
+,last_value(name) over(partition by department_id)
+from emp;
+
+#20
+
+select name,salary
+from(select name,salary,dense_rank() over(order by salary desc) as ranked
+from emp) as sub 
+where ranked=1;
 
 
